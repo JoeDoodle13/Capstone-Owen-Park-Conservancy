@@ -1,4 +1,6 @@
-@layer reset, base, layout, components, utilities, overrides;
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@layer reset, base, layout, components, states, utilities, overrides;
 
 @layer reset {
 
@@ -70,6 +72,22 @@
     --green: #4C7E57;
     --dark-green: #2E514C;
     --red: #FF4D2E;
+
+    --light-weight: 400;
+    --medium-weight: 600;
+    --heavy-weight: 900;
+
+    --headers-font: "Plus Jakarta Sans", Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --content-font: "Arimo", Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    --size-50: 0.5rem;
+    --size-100: 1rem;
+    --size-200: 1.5rem;
+    --size-300: 2rem;
+    --size-400: 3rem;
+
+    --radius: 0.75rem;
+    --focus: 3px solid var(--green);
   }
 
   html {
@@ -77,28 +95,140 @@
   }
 
   body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--content-font);
     line-height: 1.5;
+    font-size: 1.125rem;
+    margin: 0 var(--size-300);
   }
-
-  h1 {
-    color: var(--grey);
-  }
-
-  
 
   img,
   svg {
     max-width: 100%;
   }
+
+  header {
+    text-align: center;
+  }
+
+  h1, h2, h3 {
+    color: var(--green);
+    font-weight: var(--medium-weight);
+    font-family: var(--headers-font);
+  }
+
+  h1 a {
+    color: var(--grey);
+    font-size: var(--size-400);
+  }
+
+  h2 {
+    font-size: var(--size-300);
+    margin: var(--size-400) 0 var(--size-50);
+  }
+
+  h3 {
+    font-size: var(--size-200);
+    color: var(--ivory);
+    margin: var(--size-200) 0 var(--size-50);
+  }
+
+  p {
+    margin: var(--size-50) 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  nav ul {
+    border-radius: var(--radius);
+    background-color: var(--green);
+    font-weight: var(--medium-weight);
+    font-family: var(--headers-font);
+    padding: var(--size-100);
+  }
+
+  nav ul a {
+    color: var(--ivory);
+  }
 }
 
 @layer layout {
   /* Add page-level layout and composition classes here. */
+  nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  /* flex items */
 }
 
 @layer components {
   /* Add reusable components such as buttons, cards, callouts, and forms here. */
+  .card {
+    background-color: var(--green);
+    color: var(--ivory);
+    display: flex;
+    margin: 1rem;
+    padding: var(--size-100);
+    border-radius: var(--radius);
+  }
+
+  form {
+    margin: var(--size-50) 0;
+  }
+
+  .key-header {
+    font-weight: var(--light-weight);
+  }
+
+  .key-content {
+    font-size: var(--size-300);
+    font-weight: var(--medium-weight);
+  }
+
+  .required {
+    color: var(--red);
+    font-weight: var(--medium-weight);
+  }
+
+  .note {
+    font-style: italic;
+  }
+}
+
+@layer states {
+  /* hover, etc */
+  h1 a:hover, h2 a:hover {
+    color: var(--light-green);
+    text-decoration:underline;
+  }
+
+  a[aria-current="page"] {
+    font-weight: var(--heavy-weight); 
+    text-decoration: underline; 
+  }
+
+  a:link, a:visited {
+    color: var(--green);
+  }
+
+  .key-content a:hover {
+    color: var(--light-green);
+  }
+
+  nav [aria-current="page"] {
+    font-size: calc(100% + 0.25rem);
+  }
+
+  nav a:visited {
+    color: var(--ivory);
+  }
+
+  li:hover {
+    background-color: var(--dark-green);
+  }
 }
 
 @layer utilities {
@@ -110,6 +240,10 @@
     clip: rect(0 0 0 0);
     white-space: nowrap;
     clip-path: inset(50%);
+  }
+  
+  a:active {
+    color: var(--red);
   }
 }
 
