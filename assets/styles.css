@@ -67,11 +67,11 @@
 @layer base {
   :root {
     --grey: #1A3344;
-    --ivory: #FFFEF0;
-    --light-green: #69A961;
-    --green: #4C7E57;
-    --dark-green: #2E514C;
-    --red: #FF4D2E;
+    --ivory: #fffef4;
+    --highlight-text-green: #53bf8f;
+    --base-green: #3c8463;
+    --highlight-background-green: #2E514C;
+    --important-red: #FF4D2E;
 
     --light-weight: 400;
     --medium-weight: 600;
@@ -87,7 +87,7 @@
     --size-400: 3rem;
 
     --radius: 0.75rem;
-    --focus: 3px solid var(--green);
+    --focus: 3px solid var(--base);
   }
 
   html {
@@ -111,7 +111,7 @@
   }
 
   h1, h2, h3 {
-    color: var(--green);
+    color: var(--base-green);
     font-weight: var(--medium-weight);
     font-family: var(--headers-font);
   }
@@ -142,13 +142,13 @@
 
   nav ul {
     border-radius: var(--radius);
-    background-color: var(--green);
+    background-color: var(--base-green);
     font-weight: var(--medium-weight);
     font-family: var(--headers-font);
     padding: var(--size-100);
   }
 
-  nav ul a {
+  nav a {
     color: var(--ivory);
   }
 }
@@ -167,7 +167,7 @@
 @layer components {
   /* Add reusable components such as buttons, cards, callouts, and forms here. */
   .card {
-    background-color: var(--green);
+    background-color: var(--base-green);
     color: var(--ivory);
     display: flex;
     margin: 1rem;
@@ -189,7 +189,7 @@
   }
 
   .required {
-    color: var(--red);
+    color: var(--important-red);
     font-weight: var(--medium-weight);
   }
 
@@ -201,7 +201,7 @@
 @layer states {
   /* hover, etc */
   h1 a:hover, h2 a:hover {
-    color: var(--light-green);
+    color: var(--highlight-text-green);
     text-decoration:underline;
   }
 
@@ -210,24 +210,25 @@
     text-decoration: underline; 
   }
 
-  a:link, a:visited {
-    color: var(--green);
+  a:link {
+    color: var(--base-green);
   }
 
   .key-content a:hover {
-    color: var(--light-green);
+    color: var(--highlight-text-green);
   }
 
   nav [aria-current="page"] {
     font-size: calc(100% + 0.25rem);
   }
 
+  nav a:link, 
   nav a:visited {
     color: var(--ivory);
   }
 
   li:hover {
-    background-color: var(--dark-green);
+    background-color: var(--highlight-background-green);
   }
 }
 
@@ -241,14 +242,13 @@
     white-space: nowrap;
     clip-path: inset(50%);
   }
-  
-  a:active {
-    color: var(--red);
-  }
 }
 
 @layer overrides {
   /* Keep this layer small. Use it only for intentional exceptions. */
+  a:active {
+    color: var(--important-red);
+  }
 }
 
 @media print {
