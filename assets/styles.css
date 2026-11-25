@@ -69,7 +69,7 @@
     --grey: #1A3344;
     --ivory: #fffef4;
     --highlight-text-green: #53bf8f;
-    --base-green: #3c8463;
+    --base-green: #33835f;
     --highlight-background-green: #2E514C;
     --important-red: #FF4D2E;
 
@@ -145,6 +145,10 @@
     background-color: var(--base-green);
     font-weight: var(--medium-weight);
     font-family: var(--headers-font);
+  }
+
+  nav li {
+    flex: 1;
     padding: var(--size-100);
   }
 
@@ -155,6 +159,7 @@
 
 @layer layout {
   /* Add page-level layout and composition classes here. */
+  /* Does it place major regions of the page, ie header, main grid, footer, etc */
   nav ul {
     display: flex;
     justify-content: space-around;
@@ -166,6 +171,7 @@
 
 @layer components {
   /* Add reusable components such as buttons, cards, callouts, and forms here. */
+  /* Its own thing */
   .card {
     background-color: var(--base-green);
     color: var(--ivory);
@@ -205,21 +211,19 @@
     text-decoration:underline;
   }
 
-  a[aria-current="page"] {
+  a[aria-current="page"],
+  a:active {
     font-weight: var(--heavy-weight); 
     text-decoration: underline; 
   }
 
-  a:link {
+  a:link,
+  a:visited {
     color: var(--base-green);
   }
 
   .key-content a:hover {
     color: var(--highlight-text-green);
-  }
-
-  nav [aria-current="page"] {
-    font-size: calc(100% + 0.25rem);
   }
 
   nav a:link, 
