@@ -106,30 +106,30 @@
     max-width: 100%;
   }
 
-  header {
-    text-align: center;
-  }
-
   h1, h2, h3 {
-    color: var(--base-green);
-    font-weight: var(--medium-weight);
     font-family: var(--headers-font);
-
     margin-block: 1rem;
   }
 
-  h1 a {
-    color: var(--grey);
-    font-size: var(--size-400);
-    font-weight: var(--heavy-weight);
-
-    line-height: 1.125;
+  h1,
+  h2 {
+    color: var(--base-green);
   }
 
+  h2,
+  h3 {
+    font-weight: var(--medium-weight);
+  }
+
+  /*  header  */
+  h1 a {
+    font-size: var(--size-400);
+    font-weight: var(--heavy-weight);
+    line-height: 1.125;
+  }
   .title {
     display: block;
   }
-
   @media (min-width: 53rem) {
     .title {
       display: inline;
@@ -161,13 +161,11 @@
     font-weight: var(--medium-weight);
     font-family: var(--headers-font);
   }
-
   /* TO-DO: round edges of about and contact when highlighted */
   nav li {
     flex: 1;
     padding: var(--size-100);
   }
-
   nav a {
     color: var(--ivory);
   }
@@ -176,13 +174,15 @@
 @layer layout {
   /* Add page-level layout and composition classes here. */
   /* Does it place major regions of the page, ie header, main grid, footer, etc */
+  header {
+    text-align: center;
+  }
+  
   nav ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
-
-  /* flex items */
 }
 
 @layer components {
@@ -204,7 +204,7 @@
   @media (min-width: 38rem) {
     .card {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: minmax(50px, auto);
       align-items: center;
     }
@@ -217,6 +217,10 @@
   }
 
   /* important information */
+  .key-container {
+    margin-block-start: var(--size-400);
+    margin-block-end: var(--size-50);
+  }
   .key-header {
     font-weight: var(--light-weight);
   }
@@ -226,6 +230,19 @@
   }
   .note {
     font-style: italic;
+    font-size: 1.125rem;
+    font-weight: var(--light-weight);
+  }
+  @media (min-width: 42rem) {
+    .key-container h2 {
+      margin: 0;
+    }
+    .key-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto;
+      align-items: baseline;
+    }
   }
 
   .required {
