@@ -10,48 +10,48 @@
   */
 
   html, body, div, span, applet, object, iframe,
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed, 
-  figure, figcaption, footer, header, hgroup, 
-  menu, nav, output, ruby, section, summary,
-  time, mark, audio, video {
-  	margin: 0;
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
 	padding: 0;
-  	border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
-  }
-  /* HTML5 display-role reset for older browsers */
-  article, aside, details, figcaption, figure, 
-  footer, header, hgroup, menu, nav, section {
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
 	display: block;
-  }
-  body {
+}
+body {
 	line-height: 1;
-  }
-  ol, ul {
-    list-style: none;
-  }
-  blockquote, q {
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
 	quotes: none;
-  }
-  blockquote:before, blockquote:after,
-  q:before, q:after {
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
 	content: '';
 	content: none;
-  }
-  table {
+}
+table {
 	border-collapse: collapse;
 	border-spacing: 0;
-  }
+}
 
   *,
   *::before,
@@ -107,7 +107,9 @@
     max-width: 100%;
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     font-family: var(--headers-font);
     margin-block: 1rem;
   }
@@ -129,22 +131,27 @@
     line-height: 1.125;
     margin-block-end: clamp(var(--size-100) + 1vw, 2vw, var(--size-200));
   }
+
   .title {
     display: block;
     text-align: left;
   }
+
   @media (min-width: 360px) {
     h1 {
       font-size: var(--size-400);
     }
+
     .title {
       text-align: center;
     }
   }
+
   @media (min-width: 53rem) {
     .title {
       display: inline;
     }
+
     h1 {
       margin-block-start: calc(var(--size-400) + var(--size-100));
       font-size: clamp(var(--size-400), var(--size-400) + 1vw, var(--size-500));
@@ -178,6 +185,7 @@
     font-weight: var(--medium-weight);
     font-family: var(--headers-font);
   }
+
   /* TO-DO: round edges of about and contact when highlighted */
   nav a {
     color: var(--ivory);
@@ -185,39 +193,47 @@
 }
 
 @layer layout {
+
   /* Add page-level layout and composition classes here. */
   /* Does it place major regions of the page, ie header, main grid, footer, etc */
   header,
   main {
     margin-inline: auto;
   }
+
   header {
     text-align: center;
     width: min(100%, 70% + 12rem, 65rem);
   }
+
   main {
     width: min(100%, 70% + 9rem, 48rem);
   }
-  
+
   nav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
   }
+
   nav li {
     flex: 1;
     padding-block: var(--size-100);
     /* padding-inline: calc(var(--size-50) + 3vw); */
   }
+
   @media (min-width: 360px) {
     nav ul {
-      flex-wrap:nowrap;
+      flex-wrap: nowrap;
     }
+
     nav li {
       padding: var(--size-100);
     }
   }
+
+  /* about images, grid */
 }
 
 @layer components {
@@ -232,41 +248,51 @@
     padding: var(--size-100);
     margin: 1rem;
   }
-  h3, 
+
+  h3,
   .card p {
     margin-inline-start: var(--size-50);
   }
+
   .info {
     display: block;
     text-align: center;
     line-height: 2.5rem;
   }
+
   @media (min-width: 24rem) {
     .info {
       display: inline;
       text-align: right;
     }
+  }
+
   @media (min-width: 38rem) {
     .card {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
     }
+
     h3 {
       margin-inline-start: var(--size-100);
     }
+
     .card p {
       margin-inline-end: var(--size-50);
     }
   }
+
   @media (min-width: 53rem) {
     .card-container {
       display: flex;
     }
+
     .card {
       display: block;
       flex: 1;
     }
+
     h3 {
       margin-inline-start: var(--size-50);
     }
@@ -277,19 +303,21 @@
   /* If I end up adding a background behind important info:
      Issue is, the content isn't aligned down the center
   */
-  /* .key-parent {
+  .key-parent {
+    --rate-slow: calc(1rem + (100% - 20rem) * 0.20);
+    --rate-fast: calc(var(--rate-slow) + (100% - 30rem) * 0.5);
+    --gutter: min(
+      var(--size-500),
+      max(var(--rate-slow), var(--rate-fast))
+    );
+    padding-inline-start: var(--gutter);
+    
     background-color: white;
     border: 2px solid var(--highlight-text-green);
     border-radius: 2rem;
     padding-block-end: var(--size-300);
-    padding-inline: 1.5rem;
-  } 
+  }
   .key-container {
-      width: clamp(20rem, 65% + 12rem, 36rem);
-  }*/
-  .key-container {
-    width: clamp(20rem, 70% + 10rem, 36rem);
-    margin-inline: auto;
     margin-block-start: var(--size-400);
     margin-block-end: var(--size-50);
   }
@@ -312,20 +340,50 @@
     font-size: 1.125rem;
     font-weight: var(--light-weight);
   }
-  @media (min-width: 42rem) {
+  @media (min-width: 46rem) {
+    .key-header {
+      grid-area: hd;
+    }
+    .address,
+    .hours {
+      grid-area: item;
+    }
+    .home-page.key-parent {
+      padding-inline-start: 0;
+    }
+    .home-page .key-container {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      align-items: baseline;
+      grid-template-areas:
+        ". hd hd hd hd item item item item item"
+    }
+    .home-page .key-container h2 {
+      margin: 0;
+    }
+  }
+
+  @media (min-width: 49rem) {
+    .contact {
+      grid-area: item;
+    }
+    .contact-page.key-parent {
+      padding-inline-start: 0;
+    }
+    .contact-page .key-container {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      align-items: baseline;
+      grid-template-areas:
+        ". hd hd hd hd item item item item item"
+    }
     .key-container h2 {
       margin: 0;
     }
-    .key-container {
-      display: grid;
-      grid-template-columns: [title-start] 5fr [content-start] 5fr;
-      grid-template-rows: auto auto;
-      align-items: baseline;
-    }
     .contact {
       justify-self: flex-end;
+      padding-inline-end: var(--size-400);
     }
-  }
 
   .required {
     color: var(--important-red);
@@ -338,13 +396,14 @@
 }
 
 @layer states {
+
   /* hover, etc */
   a:link,
   a:visited {
     color: var(--base-green);
   }
 
-  h1 a:hover, 
+  h1 a:hover,
   h1 a:focus,
   h2 a:hover,
   h2 a:focus,
@@ -358,11 +417,11 @@
   a:active,
   a:hover,
   a:focus {
-    font-weight: var(--heavy-weight); 
-    text-decoration: underline; 
+    font-weight: var(--heavy-weight);
+    text-decoration: underline;
   }
 
-  nav a:link, 
+  nav a:link,
   nav a:visited {
     color: var(--ivory);
   }
@@ -386,12 +445,12 @@
 }
 
 @layer overrides {
+
   /* Keep this layer small. Use it only for intentional exceptions. */
   a:active {
     color: var(--important-red);
   }
 }
 
-@media print {
-  /* Add print improvements here. */
-}
+/* @media print { }  */
+/* Add print improvements here. */
