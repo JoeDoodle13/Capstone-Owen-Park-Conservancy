@@ -123,7 +123,17 @@
     font-size: var(--size-400);
     font-weight: var(--heavy-weight);
 
-    line-height: 1;
+    line-height: 1.125;
+  }
+
+  .title {
+    display: block;
+  }
+
+  @media (min-width: 53rem) {
+    .title {
+      display: inline;
+    }
   }
 
   h2 {
@@ -135,8 +145,7 @@
   h3 {
     font-size: var(--size-200);
     color: var(--ivory);
-    margin-block-start: var(--size-200);
-    margin-block-end: var(--size-50);
+    margin-inline-start: var(--size-50);
   }
 
   p {
@@ -154,6 +163,7 @@
     font-family: var(--headers-font);
   }
 
+  /* TO-DO: round edges of about and contact when highlighted */
   nav li {
     flex: 1;
     padding: var(--size-100);
@@ -182,10 +192,13 @@
   .card {
     background-color: var(--base-green);
     color: var(--ivory);
-    display: flex;
-    margin: 1rem;
-    padding: var(--size-100);
     border-radius: var(--radius);
+    padding: var(--size-100);
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(50px, auto);
+    align-items: center;
   }
 
   form {
@@ -213,24 +226,27 @@
 
 @layer states {
   /* hover, etc */
-  h1 a:hover, h2 a:hover {
-    color: var(--highlight-text-green);
-    text-decoration:underline;
-  }
-
-  a[aria-current="page"],
-  a:active {
-    font-weight: var(--heavy-weight); 
-    text-decoration: underline; 
-  }
-
   a:link,
   a:visited {
     color: var(--base-green);
   }
 
-  .key-content a:hover {
+  h1 a:hover, 
+  h1 a:focus,
+  h2 a:hover,
+  h2 a:focus,
+  .key-content a:hover,
+  .key-content a:focus {
     color: var(--highlight-text-green);
+  }
+
+  /* TO-DO: include transition for bold, so it fades into it ; not so jumpy */
+  a[aria-current="page"],
+  a:active,
+  a:hover,
+  a:focus {
+    font-weight: var(--heavy-weight); 
+    text-decoration: underline; 
   }
 
   nav a:link, 
