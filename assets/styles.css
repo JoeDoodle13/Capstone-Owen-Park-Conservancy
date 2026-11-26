@@ -175,13 +175,16 @@
 @layer layout {
   /* Add page-level layout and composition classes here. */
   /* Does it place major regions of the page, ie header, main grid, footer, etc */
+  header,
+  main {
+    margin-inline: auto;
+  }
   header {
     text-align: center;
+    width: min(100% - var(--size-50), 70% + 12rem, 65rem);
   }
-
   main {
-    width: clamp(20rem, min(48rem, calc(70% + 9rem)), 58rem);
-    margin-inline: auto;
+    width: min(100%, 70% + 9rem, 48rem);
   }
   
   nav ul {
