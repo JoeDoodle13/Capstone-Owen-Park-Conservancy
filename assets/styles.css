@@ -98,7 +98,7 @@
     font-family: var(--content-font);
     line-height: 1.5;
     font-size: 1.125rem;
-    margin: 0 var(--size-300);
+    margin-inline: var(--size-300);
   }
 
   img,
@@ -148,7 +148,8 @@
   }
 
   p {
-    margin-block: var(--size-50);
+    margin-block: var(--size-100);
+    margin-inline-start: var(--size-50);
   }
 
   a {
@@ -176,6 +177,11 @@
   /* Does it place major regions of the page, ie header, main grid, footer, etc */
   header {
     text-align: center;
+  }
+
+  main {
+    width: clamp(20rem, min(48rem, calc(70% + 9rem)), 58rem);
+    margin-inline: auto;
   }
   
   nav ul {
@@ -217,7 +223,23 @@
   }
 
   /* important information */
+
+  /* If I end up adding a background behind important info:
+     Issue is, the content isn't aligned down the center
+  */
+  /* .key-parent {
+    background-color: white;
+    border: 2px solid var(--highlight-text-green);
+    border-radius: 2rem;
+    padding-block-end: var(--size-300);
+    padding-inline: 1.5rem;
+  } 
   .key-container {
+      width: clamp(20rem, min(36rem, calc(65% + 12rem)), 58rem);
+  }*/
+  .key-container {
+    width: clamp(20rem, min(36rem, calc(70% + 10rem)), 58rem);
+    margin-inline: auto;
     margin-block-start: var(--size-400);
     margin-block-end: var(--size-50);
   }
@@ -227,6 +249,13 @@
   .key-content {
     font-size: var(--size-300);
     font-weight: var(--medium-weight);
+  }
+  .key-content.address {
+    inline-size: max-content;
+  }
+  .key-container p {
+    margin-block: var(--size-50);
+    margin-inline-start: 0;
   }
   .note {
     font-style: italic;
@@ -239,9 +268,12 @@
     }
     .key-container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: [title-start] 5fr [content-start] 5fr;
       grid-template-rows: auto auto;
       align-items: baseline;
+    }
+    .contact {
+      justify-self: flex-end;
     }
   }
 
