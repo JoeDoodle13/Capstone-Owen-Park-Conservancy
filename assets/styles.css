@@ -155,7 +155,7 @@
 
   p {
     margin-block: var(--size-100);
-    margin-inline: var(--size-50);
+    margin-inline: min(100%, 6vw - var(--size-100), var(--size-400))
   }
 
   a {
@@ -244,7 +244,7 @@
     padding-inline: 1.5rem;
   } 
   .key-container {
-      width: clamp(20rem, min(36rem, 65% + 12rem), 58rem);
+      width: clamp(20rem, 65% + 12rem, 36rem);
   }*/
   .key-container {
     width: clamp(20rem, 70% + 10rem, 36rem);
