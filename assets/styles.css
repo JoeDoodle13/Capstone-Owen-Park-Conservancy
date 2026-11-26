@@ -312,7 +312,7 @@ table {
     );
     padding-inline-start: var(--gutter);
     
-    background-color: white;
+    /* background-color: white; */
     border: 2px solid var(--highlight-text-green);
     border-radius: 2rem;
     padding-block-end: var(--size-300);
