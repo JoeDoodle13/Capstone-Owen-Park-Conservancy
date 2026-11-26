@@ -155,6 +155,7 @@
 
   p {
     margin-block: var(--size-100);
+    /* to make it grow less fast, adjusts Xvw */
     margin-inline: min(100%, 6vw - var(--size-100), var(--size-400))
   }
 
