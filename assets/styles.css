@@ -114,26 +114,33 @@
     color: var(--base-green);
     font-weight: var(--medium-weight);
     font-family: var(--headers-font);
+
+    margin-block: 1rem;
   }
 
   h1 a {
     color: var(--grey);
     font-size: var(--size-400);
+    font-weight: var(--heavy-weight);
+
+    line-height: 1;
   }
 
   h2 {
     font-size: var(--size-300);
-    margin: var(--size-400) 0 var(--size-50);
+    margin-block-start: var(--size-400);
+    margin-block-end: var(--size-50);
   }
 
   h3 {
     font-size: var(--size-200);
     color: var(--ivory);
-    margin: var(--size-200) 0 var(--size-50);
+    margin-block-start: var(--size-200);
+    margin-block-end: var(--size-50);
   }
 
   p {
-    margin: var(--size-50) 0;
+    margin-block: var(--size-50);
   }
 
   a {
@@ -182,7 +189,7 @@
   }
 
   form {
-    margin: var(--size-50) 0;
+    margin-block: var(--size-50);
   }
 
   .key-header {
