@@ -200,12 +200,10 @@ table {
   main {
     margin-inline: auto;
   }
-
   header {
     text-align: center;
     width: min(100%, 70% + 12rem, 65rem);
   }
-
   main {
     width: min(100%, 70% + 9rem, 48rem);
   }
@@ -304,6 +302,7 @@ table {
      Issue is, the content isn't aligned down the center
   */
   .key-parent {
+    /* AI suggested, will redo */
     --rate-slow: calc(1rem + (100% - 20rem) * 0.20);
     --rate-fast: calc(var(--rate-slow) + (100% - 30rem) * 0.5);
     --gutter: min(
@@ -340,6 +339,7 @@ table {
     font-size: 1.125rem;
     font-weight: var(--light-weight);
   }
+  /* home page */
   @media (min-width: 46rem) {
     .key-header {
       grid-area: hd;
@@ -362,7 +362,7 @@ table {
       margin: 0;
     }
   }
-
+  /* contact page */
   @media (min-width: 49rem) {
     .contact {
       grid-area: item;
