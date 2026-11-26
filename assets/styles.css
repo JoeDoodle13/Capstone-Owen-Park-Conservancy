@@ -124,13 +124,22 @@
 
   /*  header  */
   h1 {
-    font-size: var(--size-400);
+    font-size: calc(var(--size-200) + 5vw);
     font-weight: var(--heavy-weight);
     line-height: 1.125;
     margin-block-end: clamp(var(--size-100) + 1vw, 2vw, var(--size-200));
   }
   .title {
     display: block;
+    text-align: left;
+  }
+  @media (min-width: 360px) {
+    h1 {
+      font-size: var(--size-400);
+    }
+    .title {
+      text-align: center;
+    }
   }
   @media (min-width: 53rem) {
     .title {
@@ -170,10 +179,6 @@
     font-family: var(--headers-font);
   }
   /* TO-DO: round edges of about and contact when highlighted */
-  nav li {
-    flex: 1;
-    padding: var(--size-100);
-  }
   nav a {
     color: var(--ivory);
   }
@@ -196,8 +201,22 @@
   
   nav ul {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+  }
+  nav li {
+    flex: 1;
+    padding-block: var(--size-100);
+    /* padding-inline: calc(var(--size-50) + 3vw); */
+  }
+  @media (min-width: 360px) {
+    nav ul {
+      flex-wrap:nowrap;
+    }
+    nav li {
+      padding: var(--size-100);
+    }
   }
 }
 
@@ -217,11 +236,20 @@
   .card p {
     margin-inline-start: var(--size-50);
   }
+  .info {
+    display: block;
+    text-align: center;
+    line-height: 2.5rem;
+  }
+  @media (min-width: 24rem) {
+    .info {
+      display: inline;
+      text-align: right;
+    }
   @media (min-width: 38rem) {
     .card {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: minmax(50px, auto);
       align-items: center;
     }
     h3 {
@@ -229,6 +257,18 @@
     }
     .card p {
       margin-inline-end: var(--size-50);
+    }
+  }
+  @media (min-width: 53rem) {
+    .card-container {
+      display: flex;
+    }
+    .card {
+      display: block;
+      flex: 1;
+    }
+    h3 {
+      margin-inline-start: var(--size-50);
     }
   }
 
@@ -327,7 +367,8 @@
     color: var(--ivory);
   }
 
-  li:hover {
+  li:hover,
+  li.card:hover {
     background-color: var(--highlight-background-green);
   }
 }
