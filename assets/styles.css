@@ -75,10 +75,10 @@ table {
 
     --light-weight: 400;
     --medium-weight: 600;
-    --heavy-weight: 900;
+    --heavy-weight: 800;
 
-    --headers-font: "Plus Jakarta Sans", Ubuntu, 'Open Sans', 'Helvetica Neue', sans-serif;
-    --content-font: "Arimo", Roboto, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --headers-font: "Plus Jakarta Sans", 'Open Sans', 'Helvetica', sans-serif;
+    --content-font: "Arimo", 'Open Sans', 'Helvetica', sans-serif;
 
     --size-50: 0.5rem;
     --size-100: 1rem;
@@ -305,52 +305,60 @@ table {
     /* AI suggested, will redo */
     --rate-slow: calc(1rem + (100% - 20rem) * 0.20);
     --rate-fast: calc(var(--rate-slow) + (100% - 30rem) * 0.5);
-    --gutter: min(
-      var(--size-500),
-      max(var(--rate-slow), var(--rate-fast))
-    );
+    --gutter: min(var(--size-500),
+        max(var(--rate-slow), var(--rate-fast)));
     padding-inline-start: var(--gutter);
-    
+
     /* background-color: white; */
     border: 2px solid var(--highlight-text-green);
     border-radius: 2rem;
     padding-block-end: var(--size-300);
   }
+
   .key-container {
     margin-block-start: var(--size-400);
     margin-block-end: var(--size-50);
   }
+
   .key-header {
     font-weight: var(--light-weight);
   }
+
   .key-content {
     font-size: var(--size-300);
     font-weight: var(--medium-weight);
   }
+
   .key-content.address {
     inline-size: max-content;
   }
+
   .key-container p {
     margin-block: var(--size-50);
     margin-inline-start: 0;
   }
+
   .note {
     font-style: italic;
     font-size: 1.125rem;
     font-weight: var(--light-weight);
   }
+
   /* home page */
   @media (min-width: 46rem) {
     .key-header {
       grid-area: hd;
     }
+
     .address,
     .hours {
       grid-area: item;
     }
+
     .home-page.key-parent {
       padding-inline-start: 0;
     }
+
     .home-page .key-container {
       display: grid;
       grid-template-columns: repeat(10, 1fr);
@@ -358,18 +366,22 @@ table {
       grid-template-areas:
         ". hd hd hd hd item item item item item"
     }
+
     .home-page .key-container h2 {
       margin: 0;
     }
   }
+
   /* contact page */
   @media (min-width: 49rem) {
     .contact {
       grid-area: item;
     }
+
     .contact-page.key-parent {
       padding-inline-start: 0;
     }
+
     .contact-page .key-container {
       display: grid;
       grid-template-columns: repeat(10, 1fr);
@@ -377,21 +389,24 @@ table {
       grid-template-areas:
         ". hd hd hd hd item item item item item"
     }
+
     .key-container h2 {
       margin: 0;
     }
+
     .contact {
       justify-self: flex-end;
       padding-inline-end: var(--size-400);
     }
 
-  .required {
-    color: var(--important-red);
-    font-weight: var(--medium-weight);
-  }
+    .required {
+      color: var(--important-red);
+      font-weight: var(--medium-weight);
+    }
 
-  form {
-    margin-block: var(--size-50);
+    form {
+      margin-block: var(--size-50);
+    }
   }
 }
 
@@ -451,6 +466,7 @@ table {
     color: var(--important-red);
   }
 }
+
 
 /* @media print { }  */
 /* Add print improvements here. */
